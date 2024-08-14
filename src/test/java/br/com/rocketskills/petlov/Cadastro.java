@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.Duration;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -16,11 +18,22 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 class Cadastro {
 
+	WebDriver driver;
+	
+	@BeforeEach
+	void start(){
+		driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	}
+
+	@AfterEach
+	void finish(){
+		driver.close();
+	}
+
 	@Test
 	@DisplayName("Deve poder cadastrar um ponto de doaçao")
 	void creatPoint() {
-		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
 		driver.get("https://petlov.vercel.app/signup");
 
@@ -63,9 +76,7 @@ class Cadastro {
 		String target = "Seu ponto de doação foi adicionado com sucesso. Juntos, podemos criar um mundo onde todos os animais recebam o amor e cuidado que merecem.";
 		
 		assertEquals(target, result.getText(), "Verificando a mensagem de sucesso");
-	
-		driver.close();
-		
+			
 		
 	}
 }
