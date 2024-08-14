@@ -31,7 +31,30 @@ class Cadastro {
 
 
 		assertEquals("Cadastro de ponto de doação", title.getText(), "Verificando o Slogan");
+		
+		WebElement name = driver.findElement(By.cssSelector("input[placeholder='Nome do ponto de doação']"));
+		name.sendKeys("Point doação");
 
-		driver.close();
+		WebElement email = driver.findElement(By.cssSelector("input[name=email]"));
+		email.sendKeys("pointdoação@gmail.com");
+
+		WebElement cep = driver.findElement(By.cssSelector("input[name=cep]"));
+		cep.sendKeys("63800000");
+
+		WebElement cepButton = driver.findElement(By.cssSelector("input[value='Buscar CEP']"));
+		cepButton.click();
+
+		WebElement number = driver.findElement(By.cssSelector("input[name='addressNumber']"));
+		number.sendKeys("3520");
+
+		WebElement details = driver.findElement(By.cssSelector("input[name='addressDetails']"));
+		details.sendKeys("casa");
+
+
+
+		
+		
+
+		
 	}
 }
