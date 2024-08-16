@@ -45,7 +45,7 @@ class CadastroSelenide {
 
     @Test
     @DisplayName("Deve poder cadastrar um ponto de doação")
-    void creatPoint() {
+    void caminhoFeliz() {
 
 		// Pre-condição
         PontoDoacao pontoDoacao = new PontoDoacao(
@@ -67,6 +67,33 @@ class CadastroSelenide {
 		String target = "Seu ponto de doação foi adicionado com sucesso. Juntos, podemos criar um mundo onde todos os animais recebam o amor e cuidado que merecem.";
 
 		$("#success-page p").shouldHave(text((target)));			
+		
+	}
+
+	@Test
+    @DisplayName("Não deve cadastrar com um email inválido")
+    void emailIncorreto() {
+
+		// Pre-condição
+        PontoDoacao pontoDoacao = new PontoDoacao(
+            "Lar dos Peludos",
+            "atendimento&peludos.com.br",
+            "63800000",
+            "3520",
+            "casa",
+            "Gatos"
+        );
+
+		open("https://petlov.vercel.app/signup");
+
+		// Ação
+
+		submeteFormulario(pontoDoacao);
+		
+		// Resultado esperado
+		String target = "Informe um email válido";
+
+		$(".alert-error").shouldHave(text((target)));			
 		
 	}
 }
