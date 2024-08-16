@@ -31,6 +31,18 @@ class PontoDoacao {
 
 class CadastroSelenide {
 
+	private void submeteFormulario(PontoDoacao pontoDoacao){
+		$("h1").shouldHave(text(("Cadastro de ponto de doação")));
+		$("input[placeholder='Nome do ponto de doação']").setValue(pontoDoacao.nome);	
+		$("input[name=email]").setValue(pontoDoacao.email);
+		$("input[name=cep]").setValue(pontoDoacao.cep);
+		$("input[value='Buscar CEP']").click();		
+		$("input[name='addressNumber']").setValue(pontoDoacao.numero);
+		$("input[name='addressDetails']").setValue(pontoDoacao.complemento);
+		$(By.xpath("//span[text()='" + pontoDoacao.pets + "']/..")).click();
+		$(".button-register").click();
+	}
+
     @Test
     @DisplayName("Deve poder cadastrar um ponto de doação")
     void creatPoint() {
@@ -48,16 +60,8 @@ class CadastroSelenide {
 		open("https://petlov.vercel.app/signup");
 
 		// Ação
-		$("h1").shouldHave(text(("Cadastro de ponto de doação")));
-		$("input[placeholder='Nome do ponto de doação']").setValue(pontoDoacao.nome);	
-		$("input[name=email]").setValue(pontoDoacao.email);
-		$("input[name=cep]").setValue(pontoDoacao.cep);
-		$("input[value='Buscar CEP']").click();		
-		$("input[name='addressNumber']").setValue(pontoDoacao.numero);
-		$("input[name='addressDetails']").setValue(pontoDoacao.complemento);
-		$(By.xpath("//span[text()='" + pontoDoacao.pets + "']/..")).click();
-		$(".button-register").click();
-		
+
+		submeteFormulario(pontoDoacao);
 		
 		// Resultado esperado
 		String target = "Seu ponto de doação foi adicionado com sucesso. Juntos, podemos criar um mundo onde todos os animais recebam o amor e cuidado que merecem.";
