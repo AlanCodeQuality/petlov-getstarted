@@ -1,80 +1,81 @@
 ![poster](.github/cover.png)
 
-## 🤘 Sobre
+## 🤘 About
 
-Projeto Petlov para o treinamento de automação de testes com Java e JUnit 5
+PetLov project for test automation training with Java and JUnit 5.
 
-## 💻 Tecnologias
-- Selenium Webdriver 4.20.0
+## 💻 Technologies
+- Selenium WebDriver 4.20.0
 - JDK 21
 - JUnit 5
 
-# Projeto de Testes e Automação para a Plataforma PetLov 🐾
+# Test and Automation Project for the PetLov Platform 🐾
 
-## Descrição 📋
+## Description 📋
 
-Este projeto visa garantir a qualidade e funcionalidade da plataforma PetLov através de testes automatizados. Utilizando Selenium WebDriver e Selenide, foram desenvolvidos testes para verificar o slogan do site e a funcionalidade de cadastro de pontos de doação.
+This project aims to ensure the quality and functionality of the PetLov platform through automated tests. Using Selenium WebDriver and Selenide, tests were developed to verify the site's slogan and the functionality of the donation point registration.
 
-## Tecnologias Utilizadas 🛠️
+## Technologies Used 🛠️
 
-- **Java:** Linguagem de programação para desenvolvimento dos testes.
-- **Selenium WebDriver:** Ferramenta para automação de navegadores.
-- **Selenide:** Biblioteca que facilita a escrita de testes de automação.
-- **JUnit:** Framework de testes para execução dos testes.
-- **Maven:** Gerenciador de dependências e build system.
+- **Java:** Programming language used for developing the tests.
+- **Selenium WebDriver:** Tool for browser automation.
+- **Selenide:** Library that simplifies writing automation tests.
+- **JUnit:** Testing framework used to run the tests.
+- **Maven:** Dependency management and build system.
 
-## Estrutura do Projeto 📁
+## Project Structure 📁
 
-O projeto está dividido em três principais pacotes, cada um com suas respectivas classes de teste:
+The project is divided into three main packages, each containing its respective test classes:
 
-### Pacote `br.com.rocketskills.petlov`
+### Package `br.com.rocketskills.petlov`
 
-- **Slogan.java:** Testa se o slogan do site é exibido corretamente. Utiliza Selenium WebDriver para abrir a página e verificar o texto do elemento `<h1>`.
+- **Slogan.java:** Tests if the site's slogan is displayed correctly. Uses Selenium WebDriver to open the page and check the text of the `<h1>` element.
 
-- **selenium.java:** Testa o processo de cadastro de um ponto de doação. Inclui os seguintes passos:
-  1. Navegar para a página de cadastro.
-  2. Preencher o formulário de cadastro com dados fictícios.
-  3. Verificar a mensagem de sucesso após o envio do formulário.
-  Utiliza Selenium WebDriver para interação com a página.
+- **selenium.java:** Tests the process of registering a donation point. It includes the following steps:
+  1. Navigate to the registration page.
+  2. Fill out the registration form with mock data.
+  3. Verify the success message after form submission.
+  Uses Selenium WebDriver for interaction with the page.
 
-- **CadastroSelenide.java:** Testa o processo de cadastro de um ponto de doação utilizando Selenide. Inclui os seguintes testes:
-  - `caminhoFeliz`: Verifica o fluxo de cadastro com dados válidos.
-  - `emailIncorreto`: Verifica a resposta da plataforma quando um e-mail inválido é fornecido.
-  Utiliza Selenide para interação com a página e validação dos resultados.
+- **CadastroSelenide.java:** Tests the process of registering a donation point using Selenide. Includes the following tests:
+  - `happyPath`: Verifies the registration flow with valid data.
+  - `invalidEmail`: Verifies the platform's response when an invalid email is provided.
+  Uses Selenide for page interaction and result validation.
 
-## Configuração do Ambiente ⚙️
+## Environment Setup ⚙️
 
-### Pré-requisitos ✅
+### Prerequisites ✅
 
-- Java 17 ou superior.
+- Java 17 or higher.
 - Maven.
-- Navegador Chrome e ChromeDriver (ou outro navegador e driver compatível).
+- Chrome browser and ChromeDriver (or other compatible browser and driver).
 
-### Instalação 🚀
+### Installation 🚀
 
-1. Clone este repositório:
-
-    ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    ```
-
-2. Navegue até o diretório do projeto:
+1. Clone this repository:
 
     ```bash
-    cd seu-repositorio
+    git clone https://github.com/your-username/your-repository.git
     ```
 
-3. Instale as dependências do Maven:
+2. Navigate to the project directory:
+
+    ```bash
+    cd your-repository
+    ```
+
+3. Install Maven dependencies:
 
     ```bash
     mvn install
     ```
 
-## Executando os Testes 🧪
+## Running the Tests 🧪
 
-Para executar os testes com JUnit:
+To run the tests with JUnit:
 
 ```bash
 mvn test
+
 
 
